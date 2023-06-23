@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&family=Poppins&display=swap');
+
+/*Initial thoughts, maybe I have no idea what I'm doing*/
+
+:root{
+    --color-primary: #d3a717;
+    --tab-width: 400px;
+    --button-width: 64px;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 50%;
+}
+
+body{
+    display: grid;
+    place-items: center;
+    margin: 1%;
+    font-family: 'Poppins';
+    line-height: 1.5;
+    background: #1b1b1b;
+    color: #f8f8f8;
+}
+
+.widget{
+    background: #646464;
+    width: var(--tab-width);
+    border-radius: 10px;
+}
+
+input{
+    display: none;
+}
+
+h2{
+    margin: 0 0 10px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.content{
+    position: relative;
+    overflow: hidden;
+    height: 650px;
+}
+
+.content-inner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: flex;
+    width: calc(var(--tab-width)* 4);
+    transition: 0.3s;
+}
+
+.content-inner > div{
+    width: inherit;
+    padding: 10px;
+}
+
+label{
+    padding: 20px;
+    font-size: 15px;
+    width: var(--button-width);
+    opacity: 0.35;
+    cursor: pointer;
+}
+
+p{
+    margin: 0;
+    font-size: 15px;
+    color: #cfcfcf;
+}
+
+.buttons{
+    position: relative;
+    display: flex;
+    border-bottom: 1px solid #d3a717;
+}
+
+.underline{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--color-primary);
+    transition: 0.2s;
+}
+
+.tabs input:nth-child(1):checked ~ .buttons .underline{
+translate: 0 0;
+}
+
+.tabs input:nth-child(2):checked ~ .buttons .underline{
+    translate: var(--button-width) 0;
+}
+
+.tabs input:nth-child(3):checked ~ .buttons .underline{
+    translate: calc(var(--button-width) * 2) 0;
+}
+
+.tabs input:nth-child(4):checked ~ .buttons .underline{
+    translate: calc(var(--button-width) * 3) 0;
+}
+
+.tabs input:nth-child(1):checked ~ .buttons label:nth-child(1),
+.tabs input:nth-child(2):checked ~ .buttons label:nth-child(2),
+.tabs input:nth-child(3):checked ~ .buttons label:nth-child(3)
+.tabs input:nth-child(3):checked ~ .buttons label:nth-child(4){
+    opacity: 1;
+}
+
+.tabs input:nth-child(1):checked ~ .content > .content-inner{
+    translate: 0 0;
+}
+
+.tabs input:nth-child(2):checked ~ .content > .content-inner{
+    translate: calc(0px - var(--tab-width)) 0;
+}
+
+.tabs input:nth-child(3):checked ~ .content > .content-inner{
+    translate: calc(0px - var(--tab-width) * 2) 0;
+}
+
+.tabs input:nth-child(4):checked ~ .content > .content-inner{
+    translate: calc(0px - var(--tab-width) * 3) 0;
+}
